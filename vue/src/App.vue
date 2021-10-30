@@ -103,17 +103,17 @@ export default {
                 id: id
             })
             .then(res => {
-                this.todos = res.data;
+                this.todos = res.data.data.todos;
                 this.todos = this.todos.map(data => ({...data, edit: false}));
             });
         },
         updateTodo(id, title) {
-            axios.post('http://localhost:8000/api/tasks', {
+            axios.put('http://localhost:8000/api/tasks', {
                 id: id,
                 title: title
             })
             .then(res => {
-                this.todos = res.data;
+                this.todos = res.data.data.todos;
                 this.todos = this.todos.map(data => ({...data, edit: false}));
             });
         },
@@ -124,7 +124,7 @@ export default {
             })
             .then(res => {
                 this.newTodo = '';
-                this.todos = res.data;
+                this.todos = res.data.data.todos;
                 this.todos = this.todos.map(data => ({...data, edit: false}));
             });
         }
@@ -132,7 +132,8 @@ export default {
     created () {
         axios.get('http://localhost:8000/api/tasks')
             .then(res => {
-                this.todos = res.data;
+                this.todos = res.data.data.todos;
+                // console.log(res.data.data.todos);
                 this.todos = this.todos.map(data => ({...data, edit: false}));
             });
     }
