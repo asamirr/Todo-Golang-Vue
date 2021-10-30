@@ -6,6 +6,7 @@ import (
 	"github.com/asamirr/Todo-Golang-Vue/config"
 	"github.com/asamirr/Todo-Golang-Vue/routes"
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/joho/godotenv"
 )
@@ -31,6 +32,8 @@ func setupRoutes(app *fiber.App) {
 func main() {
 	app := fiber.New()
 	app.Use(logger.New())
+
+	app.Use(cors.New())
 
 	// dotenv
 	err := godotenv.Load()
