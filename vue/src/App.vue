@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h1>GoTodo Web Client</h1>
+        <h1>Todo-List </h1>
         <form @submit.prevent="addNewTodo">
             <input v-model="newTodo" type="text" placeholder="New Todo" name="newTodo"/>
             <button>Add</button>
