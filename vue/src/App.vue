@@ -11,13 +11,13 @@
             <li v-for="todo in todos" :key="todo.id">
                 <div v-if="todo.edit">
                     <input v-model="todo.title" class="edit-input" type="text" />
-                    <button @click.prevent="updateTodo(todo.id, todo.title); todo.edit = false;">Update</button>
+                    <!-- <button @click.prevent="updateTodo(todo.id, todo.title); todo.edit = false;">Update</button> -->
                 </div>
                 <div v-else>
-                    <span :class="{ done: todo.status }" @click="todo.edit = true">
+                    <span :class="{ done: todo.status }" @click="todo.edit = false">
                     {{ todo.title }}
                     </span>
-                    <button @click.prevent="deleteSingle(todo.id)">Delete</button>
+                    <!-- <button @click.prevent="deleteSingle(todo.id)">Delete</button> -->
                 </div>
             </li>
         </ul>
